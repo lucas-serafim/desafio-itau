@@ -16,4 +16,8 @@ public class TransactionService {
         Transation transation = new Transation(transactionDto.getAmount(), transactionDto.getDateTime());
         transationList.add(transation);
     }
+
+    public void delete() {
+        transationList.clear();
+    }
 }

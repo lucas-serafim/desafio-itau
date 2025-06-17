@@ -24,9 +24,14 @@ public class TransationController {
             transactionService.create(transactionDto);
             return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (IllegalArgumentException exception) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).build();
+            return ResponseEntity.unprocessableEntity().build();
         } catch (Exception exception) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return ResponseEntity.badRequest().build();
         }
+    }
+
+    public ResponseEntity<Void> delete() {
+        transactionService.delete();
+        return ResponseEntity.ok().build();
     }
 }
